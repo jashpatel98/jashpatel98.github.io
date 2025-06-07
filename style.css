@@ -177,7 +177,7 @@ section h2 {
 /* Projects Section */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Responsive grid */
     gap: 20px;
 }
 
@@ -189,6 +189,13 @@ section h2 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     text-align: center;
 }
+
+/* Add this new rule for text justification */
+.project-card p {
+    text-align: justify; /* This will justify the text in the paragraphs */
+    margin-bottom: 1em; /* Add some space between paragraphs */
+}
+
 
 .project-card img {
     max-width: 100%;
