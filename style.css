@@ -224,6 +224,31 @@ section h2 {
     background: #4cae4c;
 }
 
+/* Honors & Publications Section */
+.honors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    gap: 20px;
+}
+
+.honor-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.honor-card h3 {
+    color: #337ab7;
+    margin-top: 0;
+}
+
+.honor-card ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
 /* Contact Section */
 #contact {
     text-align: center;
