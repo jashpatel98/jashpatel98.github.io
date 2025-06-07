@@ -6,6 +6,7 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
+    scroll-behavior: smooth; /* For smooth scrolling */
 }
 
 /* Header & Navigation */
@@ -64,6 +65,9 @@ main {
 section {
     padding: 40px 0;
     border-bottom: 1px solid #ddd;
+    opacity: 0; /* Initially hidden for fade-in effect */
+    transform: translateY(20px); /* Slightly offset for animation */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 section:last-of-type {
