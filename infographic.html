@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The LLM Revolution: A Visual Guide to Karpathy's Insights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F0F8FF;
+            color: #0d1a2e;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 450px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #0047AB, #007FFF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .flow-line::after {
+            content: '';
+            position: absolute;
+            bottom: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 2rem;
+            background-color: #4682B4;
+        }
+        .flow-item:last-child .flow-line::after {
+            display: none;
+        }
+        .loading-indicator {
+            display: none;
+            text-align: center;
+            padding: 1rem;
+            color: #4682B4;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center my-8 md:my-12">
+            <h1 class="text-4xl md:text-6xl font-black gradient-text">The Magic Word Machine</h1>
+            <p class="mt-4 text-lg md:text-xl text-[#4682B4] max-w-3xl mx-auto">An infographic inspired by Andrej Karpathy's insights into Large Language Models, explaining how they work from the ground up.</p>
+        </header>
+
+        <main class="space-y-12 md:space-y-20">
+
+            <section id="what-is-an-llm">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0047AB]">Part 1: What is an LLM?</h2>
+                    <p class="mt-2 text-md text-[#4682B4]">At its heart, an LLM is a powerful prediction engine. Karpathy simplifies this with two core ideas.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                        <h3 class="text-2xl font-bold text-[#0047AB] mb-4">A "Lossy Zip File" of the Internet</h3>
+                        <p class="text-gray-600 mb-4">Imagine squishing the entire internet's text into a file. LLMs don't remember everything perfectly, but they learn the patterns, ideas, and relationships. This is like compressing 10 Terabytes of data down to just 140 Gigabytes.</p>
+                        <div class="bg-[#ADD8E6] rounded-lg p-4">
+                            <p class="text-7xl font-black text-[#0047AB]">100x</p>
+                            <p class="font-semibold text-[#0047AB]">Approximate Compression Ratio</p>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-4">This "lossy" nature is why LLMs can "hallucinate" – they reconstruct based on patterns, not perfect memory.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                         <h3 class="text-2xl font-bold text-center text-[#0047AB] mb-4">The Next-Word Prediction Game</h3>
+                         <p class="text-gray-600 mb-6 text-center">The fundamental job of an LLM is to guess the next word in a sequence, based on the statistical patterns it has learned from all the text it has "read."</p>
+                        <div class="flex flex-col items-center space-y-4">
+                            <div class="flex items-center space-x-2">
+                                <span class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-lg">Twinkle,</span>
+                                <span class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-lg">twinkle,</span>
+                                <span class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-lg">little</span>
+                            </div>
+                            <span class="text-4xl font-bold text-[#4682B4]">⬇️</span>
+                            <div class="border-4 border-dashed border-[#007FFF] rounded-lg p-4">
+                                <span class="text-3xl font-bold text-[#007FFF]">star!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="training-journey">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0047AB]">Part 2: The Training Journey</h2>
+                    <p class="mt-2 text-md text-[#4682B4]">An LLM learns in several key stages, transforming from a raw data processor into a helpful assistant.</p>
+                </div>
+                <div class="flex flex-col md:flex-row justify-around items-start text-center gap-8">
+                    <div class="flow-item flex-1">
+                        <div class="relative bg-white rounded-lg shadow-lg p-6 flow-line">
+                            <div class="text-4xl mb-3">📚</div>
+                            <h3 class="text-xl font-bold text-[#0047AB]">1. Pre-training</h3>
+                            <p class="text-gray-600 text-sm mt-2">The model reads a massive library—basically, the entire internet—to learn the fundamental patterns of language and facts about the world.</p>
+                        </div>
+                    </div>
+                    <div class="flow-item flex-1 mt-8 md:mt-0">
+                        <div class="relative bg-white rounded-lg shadow-lg p-6 flow-line">
+                             <div class="text-4xl mb-3">🧩</div>
+                            <h3 class="text-xl font-bold text-[#0047AB]">2. Tokenization</h3>
+                            <p class="text-gray-600 text-sm mt-2">Words are broken down into smaller pieces called "tokens" for efficient processing. This is the model's native language.</p>
+                        </div>
+                    </div>
+                    <div class="flow-item flex-1 mt-8 md:mt-0">
+                        <div class="relative bg-white rounded-lg shadow-lg p-6 flow-line">
+                            <div class="text-4xl mb-3">🧠</div>
+                            <h3 class="text-xl font-bold text-[#0047AB]">3. Neural Network Training</h3>
+                            <p class="text-gray-600 text-sm mt-2">The model plays the "next-token" guessing game billions of times, adjusting its internal "weights" to get better with each guess.</p>
+                        </div>
+                    </div>
+                     <div class="flow-item flex-1 mt-8 md:mt-0">
+                        <div class="relative bg-white rounded-lg shadow-lg p-6 flow-line">
+                            <div class="text-4xl mb-3">💬</div>
+                            <h3 class="text-xl font-bold text-[#0047AB]">4. Supervised Fine-Tuning</h3>
+                            <p class="text-gray-600 text-sm mt-2">Humans provide high-quality examples of conversations to teach the model how to be a helpful and polite assistant.</p>
+                        </div>
+                    </div>
+                     <div class="flow-item flex-1 mt-8 md:mt-0">
+                        <div class="relative bg-white rounded-lg shadow-lg p-6">
+                            <div class="text-4xl mb-3">🏆</div>
+                            <h3 class="text-xl font-bold text-[#0047AB]">5. Reinforcement Learning (RLHF)</h3>
+                            <p class="text-gray-600 text-sm mt-2">The model generates multiple answers, humans rank them, and this feedback is used to "reward" better outputs, encouraging creativity and alignment.</p>
+                            <button id="explainRLHFBtn" class="mt-4 px-4 py-2 bg-[#007FFF] text-white rounded-lg hover:bg-[#0047AB] transition-colors">Explain RLHF Like I'm 5 ✨</button>
+                            <div id="rlhfExplanation" class="mt-4 text-left text-gray-700 bg-[#F0F8FF] p-3 rounded-lg border border-[#ADD8E6] hidden"></div>
+                            <div id="rlhfLoading" class="loading-indicator">Generating explanation...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="how-it-thinks">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0047AB]">Part 3: Inside the Machine's Head</h2>
+                    <p class="mt-2 text-md text-[#4682B4]">LLMs don't "think" like humans, but they have fascinating mechanisms for generation and reasoning, along with unique limitations.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-2xl font-bold text-[#0047AB] text-center mb-2">Creativity vs. Predictability</h3>
+                        <p class="text-gray-600 mb-4 text-center">A "temperature" setting controls randomness. Low temperature means predictable, factual answers. High temperature encourages more diverse and creative—but potentially less accurate—responses.</p>
+                        <div class="chart-container"><canvas id="temperatureChart"></canvas></div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-2xl font-bold text-[#0047AB] text-center mb-2">"Jagged Intelligence"</h3>
+                        <p class="text-gray-600 mb-4 text-center">Models can be brilliant at complex tasks but fail at simple ones. This uneven capability profile is a key characteristic of their current state.</p>
+                        <div class="chart-container"><canvas id="jaggedIntelligenceChart"></canvas></div>
+                    </div>
+                </div>
+            </section>
+
+             <section id="using-llms">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0047AB]">Part 4: A User's Guide to LLMs</h2>
+                    <p class="mt-2 text-md text-[#4682B4]">Karpathy offers practical strategies for getting the most out of these powerful tools.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                        <h3 class="text-2xl font-bold text-[#0047AB] mb-4">The "LLM Council" Strategy</h3>
+                        <p class="text-gray-600 mb-6">Don't rely on a single model. Pose the same question to multiple LLMs and compare their responses to get a more robust and well-rounded answer, mitigating the weaknesses of any single one.</p>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-[#ADD8E6] text-[#0047AB] font-bold p-3 rounded-lg">Your Prompt</div>
+                            <div class="h-8 w-px bg-[#4682B4] my-2"></div>
+                             <div class="h-px w-2/3 bg-[#4682B4] mb-2"></div>
+                            <div class="flex justify-around w-full">
+                               <div class="h-8 w-px bg-[#4682B4]"></div>
+                               <div class="h-8 w-px bg-[#4682B4]"></div>
+                               <div class="h-8 w-px bg-[#4682B4]"></div>
+                            </div>
+                            <div class="flex justify-around w-full text-center">
+                                <div class="flex flex-col items-center">
+                                    <span class="bg-white border-2 border-[#0047AB] text-[#0047AB] p-3 rounded-full font-mono">M1</span>
+                                    <p class="text-xs mt-1">Answer A</p>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="bg-white border-2 border-[#007FFF] text-[#007FFF] p-3 rounded-full font-mono">M2</span>
+                                    <p class="text-xs mt-1">Answer B</p>
+                                </div>
+                                <div class="flex flex-col items-center">
+                                    <span class="bg-white border-2 border-[#4682B4] text-[#4682B4] p-3 rounded-full font-mono">M3</span>
+                                    <p class="text-xs mt-1">Answer C</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-2xl font-bold text-[#0047AB] text-center mb-2">Comparing Model Strengths</h3>
+                        <p class="text-gray-600 mb-4 text-center">Different models excel at different tasks. The "council" approach works because some models are more creative while others provide more factual reasoning or coding assistance.</p>
+                        <div class="chart-container"><canvas id="modelComparisonChart"></canvas></div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="future">
+                 <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#0047AB]">Part 5: The Future is Evolving</h2>
+                    <p class="mt-2 text-md text-[#4682B4]">The LLM landscape is rapidly changing, with two major trends shaping what's next.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-2xl font-bold text-[#0047AB] text-center mb-2">The AI Ecosystem</h3>
+                        <p class="text-gray-600 mb-4 text-center">The field is split between proprietary, API-only models from large labs and powerful open-source models that allow for custom fine-tuning and local deployment. This dynamic fosters both cutting-edge innovation and widespread access.</p>
+                        <div class="chart-container h-96"><canvas id="ecosystemChart"></canvas></div>
+                    </div>
+                     <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                        <h3 class="text-2xl font-bold text-[#0047AB] mb-4">The Rise of Multimodality</h3>
+                        <p class="text-gray-600 mb-6">The next frontier for LLMs is moving beyond just text. Future models will increasingly understand and process images, audio, and video, creating a much richer and more capable form of AI.</p>
+                        <div class="flex justify-center items-center space-x-6 text-5xl">
+                           <span class="p-4 bg-[#ADD8E6] rounded-lg text-[#0047AB]">📝</span>
+                           <span class="text-3xl font-bold text-[#4682B4]">+</span>
+                           <span class="p-4 bg-[#ADD8E6] rounded-lg text-[#0047AB]">🖼️</span>
+                           <span class="text-3xl font-bold text-[#4682B4]">+</span>
+                           <span class="p-4 bg-[#ADD8E6] rounded-lg text-[#0047AB]">🔊</span>
+                           <span class="text-3xl font-bold text-[#4682B4]">=</span>
+                           <span class="p-4 bg-[#0047AB] rounded-lg text-white animate-pulse">🤖</span>
+                        </div>
+                         <p class="text-gray-600 mt-6">This allows for more general-purpose AI agents that can perceive and interact with the world in a more human-like way.</p>
+                         <button id="futureInsightBtn" class="mt-4 px-4 py-2 bg-[#007FFF] text-white rounded-lg hover:bg-[#0047AB] transition-colors">Generate Future AI Insight ✨</button>
+                         <div id="futureInsight" class="mt-4 text-left text-gray-700 bg-[#F0F8FF] p-3 rounded-lg border border-[#ADD8E6] hidden"></div>
+                         <div id="futureLoading" class="loading-indicator">Generating insight...</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-16 mb-8">
+            <p class="text-gray-500">Infographic created based on the analysis of Andrej Karpathy's talks and writings on LLMs. All visualizations are for illustrative purposes.</p>
+            <p class="text-xs text-gray-400 mt-2">Vibrant & Professional Color Palette [#0047AB, #007FFF, #4682B4, #ADD8E6, #F0F8FF]. No SVG or Mermaid JS used in this document.</p>
+        </footer>
+    </div>
+
+<script>
+    const vibrantPalette = {
+        cobaltBlue: 'rgba(0, 71, 171, 0.8)',
+        azure: 'rgba(0, 127, 255, 0.8)',
+        steelBlue: 'rgba(70, 130, 180, 0.8)',
+        lightBlue: 'rgba(173, 216, 230, 0.8)',
+        cobaltBlueSolid: '#0047AB',
+        azureSolid: '#007FFF',
+        steelBlueSolid: '#4682B4',
+    };
+    
+    function wrapLabels(label, maxLength) {
+        if (typeof label !== 'string' || label.length <= maxLength) {
+            return label;
+        }
+        const words = label.split(' ');
+        const lines = [];
+        let currentLine = '';
+        for (const word of words) {
+            if ((currentLine + ' ' + word).trim().length > maxLength) {
+                lines.push(currentLine.trim());
+                currentLine = word;
+            } else {
+                currentLine = (currentLine + ' ' + word).trim();
+            }
+        }
+        if (currentLine) {
+            lines.push(currentLine.trim());
+        }
+        return lines;
+    }
+
+    const universalTooltipCallback = {
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    title: function(tooltipItems) {
+                        const item = tooltipItems[0];
+                        let label = item.chart.data.labels[item.dataIndex];
+                        return Array.isArray(label) ? label.join(' ') : label;
+                    }
+                }
+            },
+            legend: {
+                labels: {
+                    color: '#0d1a2e',
+                    font: {
+                        family: 'Inter',
+                        weight: '600'
+                    }
+                }
+            }
+        },
+        scales: {
+            y: {
+                ticks: { color: vibrantPalette.steelBlueSolid },
+                grid: { color: 'rgba(70, 130, 180, 0.1)' }
+            },
+            x: {
+                ticks: { color: vibrantPalette.steelBlueSolid },
+                grid: { color: 'rgba(70, 130, 180, 0.1)' }
+            },
+            r: {
+                angleLines: { color: 'rgba(70, 130, 180, 0.2)' },
+                grid: { color: 'rgba(70, 130, 180, 0.2)' },
+                pointLabels: {
+                    color: vibrantPalette.cobaltBlueSolid,
+                    font: { size: 14, weight: 'bold' }
+                },
+                ticks: {
+                  backdropColor: 'transparent',
+                  color: vibrantPalette.steelBlueSolid
+                }
+            }
+        }
+    };
+
+    const temperatureCtx = document.getElementById('temperatureChart');
+    if (temperatureCtx) {
+        new Chart(temperatureCtx, {
+            type: 'bar',
+            data: {
+                labels: ['dog', 'cat', 'potato', 'car', 'spaceship'],
+                datasets: [{
+                    label: 'Low Temp (Predictable)',
+                    data: [0.9, 0.05, 0.03, 0.015, 0.005],
+                    backgroundColor: vibrantPalette.azure,
+                    borderColor: vibrantPalette.azureSolid,
+                    borderWidth: 1
+                }, {
+                    label: 'High Temp (Creative)',
+                    data: [0.3, 0.25, 0.2, 0.15, 0.1],
+                    backgroundColor: vibrantPalette.steelBlue,
+                    borderColor: vibrantPalette.steelBlueSolid,
+                    borderWidth: 1
+                }]
+            },
+            options: { ...universalTooltipCallback, maintainAspectRatio: false, responsive: true, indexAxis: 'y' }
+        });
+    }
+
+    const jaggedIntelligenceCtx = document.getElementById('jaggedIntelligenceChart');
+    if (jaggedIntelligenceCtx) {
+        new Chart(jaggedIntelligenceCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Creative Writing', 'Summarization', 'Reasoning', 'Simple Arithmetic', 'Spelling'],
+                datasets: [{
+                    label: 'Capability Level',
+                    data: [95, 90, 80, 40, 35],
+                    backgroundColor: [
+                        vibrantPalette.cobaltBlue,
+                        vibrantPalette.azure,
+                        vibrantPalette.steelBlue,
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(255, 159, 64, 0.7)'
+                    ],
+                    borderColor: ['#FFFFFF'],
+                    borderWidth: 3
+                }]
+            },
+            options: { ...universalTooltipCallback, maintainAspectRatio: false, responsive: true }
+        });
+    }
+
+    const modelComparisonCtx = document.getElementById('modelComparisonChart');
+    if (modelComparisonCtx) {
+        new Chart(modelComparisonCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Reasoning', 'Speed', 'Creativity', 'Factual Accuracy', 'Coding'],
+                datasets: [{
+                    label: 'Model 1 (Creative)',
+                    data: [6, 7, 9, 6, 7],
+                    fill: true,
+                    backgroundColor: 'rgba(0, 127, 255, 0.2)',
+                    borderColor: vibrantPalette.azureSolid,
+                    pointBackgroundColor: vibrantPalette.azureSolid,
+                }, {
+                    label: 'Model 2 (Factual)',
+                    data: [8, 6, 5, 9, 8],
+                    fill: true,
+                    backgroundColor: 'rgba(70, 130, 180, 0.2)',
+                    borderColor: vibrantPalette.steelBlueSolid,
+                    pointBackgroundColor: vibrantPalette.steelBlueSolid,
+                }]
+            },
+            options: { ...universalTooltipCallback, maintainAspectRatio: false, responsive: true }
+        });
+    }
+
+    const ecosystemCtx = document.getElementById('ecosystemChart');
+    if (ecosystemCtx) {
+        const rawLabels = ['Proprietary API-only Models', 'Open-Source Foundation Models', 'Custom Fine-Tuned Models'];
+        new Chart(ecosystemCtx, {
+            type: 'bar',
+            data: {
+                labels: rawLabels.map(label => wrapLabels(label, 16)),
+                datasets: [{
+                    label: 'Current Usage',
+                    data: [65, 25, 10],
+                    backgroundColor: vibrantPalette.azure,
+                }, {
+                    label: 'Projected Growth',
+                    data: [15, 45, 40],
+                    backgroundColor: vibrantPalette.steelBlue,
+                }]
+            },
+            options: { ...universalTooltipCallback, maintainAspectRatio: false, responsive: true, indexAxis: 'x', scales: { x: {...universalTooltipCallback.scales.x}, y: {...universalTooltipCallback.scales.y, stacked: true}} }
+        });
+    }
+
+    // LLM Integration Functions
+    async function generateContent(prompt, outputElement, loadingElement) {
+        outputElement.classList.add('hidden');
+        loadingElement.style.display = 'block';
+        outputElement.innerHTML = '';
+
+        let chatHistory = [];
+        chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+        const payload = { contents: chatHistory };
+        const apiKey = "";
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const result = await response.json();
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+                const text = result.candidates[0].content.parts[0].text;
+                outputElement.innerHTML = text;
+                outputElement.classList.remove('hidden');
+            } else {
+                outputElement.innerHTML = 'Sorry, could not generate content.';
+                outputElement.classList.remove('hidden');
+            }
+        } catch (error) {
+            console.error('Error calling Gemini API:', error);
+            outputElement.innerHTML = 'Failed to fetch content. Please try again later.';
+            outputElement.classList.remove('hidden');
+        } finally {
+            loadingElement.style.display = 'none';
+        }
+    }
+
+    const explainRLHFBtn = document.getElementById('explainRLHFBtn');
+    const rlhfExplanationDiv = document.getElementById('rlhfExplanation');
+    const rlhfLoadingDiv = document.getElementById('rlhfLoading');
+
+    if (explainRLHFBtn) {
+        explainRLHFBtn.addEventListener('click', () => {
+            const prompt = "Explain Reinforcement Learning from Human Feedback (RLHF) to a 5-year-old kid. Use very simple words and relate it to a game or a favorite activity.";
+            generateContent(prompt, rlhfExplanationDiv, rlhfLoadingDiv);
+        });
+    }
+
+    const futureInsightBtn = document.getElementById('futureInsightBtn');
+    const futureInsightDiv = document.getElementById('futureInsight');
+    const futureLoadingDiv = document.getElementById('futureLoading');
+
+    if (futureInsightBtn) {
+        futureInsightBtn.addEventListener('click', () => {
+            const prompt = "Provide a short, speculative insight (1-2 sentences) on how the rise of multimodal AI might impact average daily life in the next 5 years, explained simply.";
+            generateContent(prompt, futureInsightDiv, futureLoadingDiv);
+        });
+    }
+</script>
+</body>
+</html>

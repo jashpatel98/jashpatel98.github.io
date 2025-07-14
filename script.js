@@ -13,13 +13,33 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Optional: stop observing once it's visible
+                observer.unobserve(entry.target); // Stop observing once it's visible
             }
         });
     }, observerOptions);
 
     sections.forEach(section => {
         observer.observe(section);
+    });
+
+    // Back to Top Button functionality
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    // Show/hide the button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) { // Show button after scrolling 300px
+            backToTopBtn.style.display = 'block';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+
+    // Smooth scroll to top when button is clicked
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Smooth scrolling effect
+        });
     });
 
 });
