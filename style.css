@@ -179,7 +179,7 @@ section h2::after {
 /* About Section */
 .about-content {
     display: flex;
-    align-items: flex-start; /* Aligns items to the top */
+    align-items: center; /* Aligns items to the top */
     gap: 50px; /* More space between image and text */
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
@@ -192,12 +192,13 @@ section h2::after {
 }
 
 .profile-pic {
-    width: 300px; /* Larger image */
-    height: 300px;
+    width: 250px; /* Larger image */
+    height: 250px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center; /* Center the image within its circular frame */
-    border: 5px solid #007bff; /* Accent border */
+    object-position: top; /* **ADD THIS**: Aligns the top of the image to the top of its box.
+                               This ensures any excess height is cut from the bottom. */
+    border: 3px solid #007bff; /* Accent border */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow */
     flex-shrink: 0; /* Prevent shrinking */
 }
@@ -343,9 +344,10 @@ section h2::after {
 
 /* Honors & Publications Section */
 .honors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Adjusted for better responsiveness */
-    gap: 30px;
+    /* Removed grid display to allow stacking */
+    display: flex; /* Use flexbox for stacking */
+    flex-direction: column; /* Stack items vertically */
+    gap: 30px; /* Space between cards */
 }
 
 .honor-card {
@@ -354,6 +356,9 @@ section h2::after {
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Ensure full width when stacked */
+    max-width: 800px; /* Optional: limit max width for readability */
+    margin: 0 auto; /* Center the cards */
 }
 
 .honor-card:hover {
