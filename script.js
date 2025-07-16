@@ -1,5 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    const navToggle = document.querySelector('.nav-toggle');
+    const header = document.querySelector('header');
+
+    navToggle.addEventListener('click', () => {
+        // Use a class on the header to scope the "open" state
+        header.classList.toggle('nav-open');
+    });
+    
     // Intersection Observer for fade-in animations
     const sections = document.querySelectorAll('section');
 

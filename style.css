@@ -272,7 +272,7 @@ section h2::after {
 /* Projects Section */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* More flexible grid */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* More flexible grid */
     gap: 30px;
 }
 
@@ -474,6 +474,64 @@ footer {
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
 }
 
+/* Mobile Navigation Toggle (Hamburger) */
+.nav-toggle {
+    display: none; /* Hidden by default */
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 0.5em;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+    width: 2em;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    bottom: -8px;
+}
+
+/* Animate hamburger to an 'X' when active */
+.nav-open .hamburger {
+    transform: rotate(45deg);
+}
+
+.nav-open .hamburger::before {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+.nav-open .hamburger::after {
+    bottom: 0;
+    transform: rotate(90deg);
+}
 
 /* Responsive adjustments */
 @media (max-width: 992px) {
@@ -497,6 +555,9 @@ footer {
         align-items: center;
         text-align: center;
     }
+    .about-content div {
+        text-align: justify; /* Justify or use 'left' for better readability */
+    }
     .profile-pic {
         margin-bottom: 30px;
     }
@@ -508,26 +569,37 @@ footer {
         max-width: 500px; /* Max width for better readability on large screens */
         margin: 0 auto; /* Center cards */
     }
-    header ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 15px;
+    .nav-toggle {
+        display: block; /* Show the hamburger button */
     }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 60%;
+        max-width: 300px;
+        background: #343a40; /* Slightly lighter than header */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%); /* Hide it off-screen */
+        transition: transform 0.4s ease-out;
+    }
+
+    .nav-open .nav-links {
+        transform: translateX(0); /* Slide it in */
+    }
+    
     header ul li {
-        margin: 5px 15px;
+       margin: 20px 0; /* Adjust spacing for vertical menu */
     }
 }
 
 @media (max-width: 576px) {
     .logo {
         font-size: 1.5rem;
-    }
-    header ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    header ul li {
-        margin: 8px 0;
     }
     #hero {
         padding: 80px 15px;

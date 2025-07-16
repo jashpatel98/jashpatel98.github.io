@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +11,15 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <header>
         <nav>
             <h1>Jash Patel</h1>
-            <ul>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -27,19 +32,28 @@
     <main>
         <section id="hero">
             <h2>Welcome! I'm Jash</h2>
-            <p>Business Processes & Excellence Expert | AI Application & Implementation Expert | Digital Supply Chain Manager</p>
+            <p>Business Processes & Excellence Expert | AI Application & Implementation Expert | Digital Supply Chain
+                Manager</p>
             <a href="#projects" class="cta-button">View My Work <i class="fas fa-arrow-right"></i></a>
         </section>
 
         <section id="about">
             <h2>About Me</h2>
             <div class="about-content">
-                <img src="Jash picture.png" alt="Your Name" class="profile-pic"> <div>
-                    <p>Hello! I'm Jash, a Supply Chain and Technology Expert based in Frankfurt, Germany. My passion lies in Business Process Optimization, AI Application & Implementation, Digital Supply Chain Management, and Analytics</p>
-                    <p>With a background in Mechanical Engineering and Information Technology, I bring skills in areas like Artificial Intelligence, Machine Learning, Data Science, Blockchain, and Product Development.</p>
-                    <p>On the management side, I have a strong foundation in Business Process Analytics, Operations, Project Management, Purchasing, and Supply Chain & Inventory Management, always eager to expand my expertise.</p>
-                    <p>When I'm not diving into the latest tech or optimizing processes, you might find me exploring new countries, photographing perspective views, or playing chess/volleyball.</p>
-                    
+                <img src="Jash picture.png" alt="Your Name" class="profile-pic">
+                <div>
+                    <p>Hello! I'm Jash, a Supply Chain and Technology Expert based in Frankfurt, Germany. My passion
+                        lies in Business Process Optimization, AI Application & Implementation, Digital Supply Chain
+                        Management, and Analytics</p>
+                    <p>With a background in Mechanical Engineering and Information Technology, I bring skills in areas
+                        like Artificial Intelligence, Machine Learning, Data Science, Blockchain, and Product
+                        Development.</p>
+                    <p>On the management side, I have a strong foundation in Business Process Analytics, Operations,
+                        Project Management, Purchasing, and Supply Chain & Inventory Management, always eager to expand
+                        my expertise.</p>
+                    <p>When I'm not diving into the latest tech or optimizing processes, you might find me exploring new
+                        countries, photographing perspective views, or playing chess/volleyball.</p>
+
                 </div>
             </div>
         </section>
@@ -96,39 +110,57 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <h3>Purchasing Process Automation</h3>
-                    <p>As a Coordinator at Mainova AG, I developed a self-service tracking portal for purchase requisitions, integrating ERP data into Power BI to reduce email volume by 20-30% per employee.  I also built AI Agents with Microsoft Copilot Studio for negotiations and product catalog details. I have also designed and led internal AI and prompt engineering trainings. </p>
+                    <p>As a Coordinator at Mainova AG, I developed a self-service tracking portal for purchase
+                        requisitions, integrating ERP data into Power BI to reduce email volume by 20-30% per employee.
+                        I also built AI Agents with Microsoft Copilot Studio for negotiations and product catalog
+                        details. I have also designed and led internal AI and prompt engineering trainings. </p>
                     <p><strong>Technologies:</strong> Power BI, ERP Systems, AI</p>
-                    <a href="https://www.mainova.de/de/ihre-mainova/ueber-uns/profil/einkauf-und-zentrale-dienste" target="_blank" class="project-link">View Company</a>
+                    <a href="https://www.mainova.de/de/ihre-mainova/ueber-uns/profil/einkauf-und-zentrale-dienste"
+                        target="_blank" class="project-link">View Company</a>
                 </div>
                 <div class="project-card">
                     <h3>Commodity Market & Contract Analysis</h3>
-                    <p>During my time at Schwarz Corporate Solutions (previously, Schwarz Dienstleistungen), I advised buyers on commodity price indices, developed dashboards for global market reports, and streamlined contract management.  Additionally, I produced eight podcasts on procurement topics to enhance internal communication and knowledge-sharing within the organization. </p>
+                    <p>During my time at Schwarz Corporate Solutions (previously, Schwarz Dienstleistungen), I advised
+                        buyers on commodity price indices, developed dashboards for global market reports, and
+                        streamlined contract management. Additionally, I produced eight podcasts on procurement topics
+                        to enhance internal communication and knowledge-sharing within the organization. </p>
                     <p><strong>Technologies:</strong> Data Analysis, Dashboarding, Price Analysis</p>
                     <a href="https://beschaffung.schwarz/" target="_blank" class="project-link">View Company</a>
                 </div>
                 <div class="project-card">
                     <h3>Master's Thesis: Student Debt Impact</h3>
-                    <p>For my Master's Thesis at TUM, I researched the impact of student debt on professional and academic choices. The project involved analyzing debt levels and sources for a variety of dependent variables using supervised learning and descriptive statistics.</p>
-                    <p><strong>Technologies:</strong> Supervised Learning, Python, Data Analysis, Descriptive Statistics</p>
+                    <p>For my Master's Thesis at TUM, I researched the impact of student debt on professional and
+                        academic choices. The project involved analyzing debt levels and sources for a variety of
+                        dependent variables using supervised learning and descriptive statistics.</p>
+                    <p><strong>Technologies:</strong> Supervised Learning, Python, Data Analysis, Descriptive Statistics
+                    </p>
                     <a href="https://www.tum.de/" target="_blank" class="project-link">View University</a>
                 </div>
                 <div class="project-card">
                     <h3>Predictive Data Analysis (Academic)</h3>
-                    <p>This project involved the descriptive and predictive analysis of rainfall in Australia and the housing market in the USA, applying advanced statistical methods.  Another project focused on calculating product recommendations and price promotions for Kaufland data. </p>
+                    <p>This project involved the descriptive and predictive analysis of rainfall in Australia and the
+                        housing market in the USA, applying advanced statistical methods. Another project focused on
+                        calculating product recommendations and price promotions for Kaufland data. </p>
                     <p><strong>Technologies:</strong> Python, R programming </p>
                     <a href="https://github.com/jashpatel98" target="_blank" class="project-link">View on GitHub</a>
                 </div>
                 <div class="project-card">
                     <h3>Industrial IoT Integration</h3>
-                    <p>As a Working Student at Ferdinand-Steinbeis-Institut, I investigated the integration of Industrial IoT for data sharing and analysis.  My work included identifying stakeholders in various IoT business models  and updating the official website using WordPress. </p>
+                    <p>As a Working Student at Ferdinand-Steinbeis-Institut, I investigated the integration of
+                        Industrial IoT for data sharing and analysis. My work included identifying stakeholders in
+                        various IoT business models and updating the official website using WordPress. </p>
                     <p><strong>Technologies:</strong> IoT, Data Analysis, WordPress </p>
-                    <a href="https://www.ferdinand-steinbeis-institut.de/" target="_blank" class="project-link">View Institute</a>
+                    <a href="https://www.ferdinand-steinbeis-institut.de/" target="_blank" class="project-link">View
+                        Institute</a>
                 </div>
                 <div class="project-card">
                     <h3>All-Terrain Vehicle (DJS Kronos)</h3>
-                    <p>As Head of Suspension and Vehicle Dynamics, I was part of a team that built an All-Terrain Vehicle from scratch. We participated in national and international competitions, bagging 7 accolades at events like BAJA SAE India 2019 and Enduro Student India 2019.</p>
+                    <p>As Head of Suspension and Vehicle Dynamics, I was part of a team that built an All-Terrain
+                        Vehicle from scratch. We participated in national and international competitions, bagging 7
+                        accolades at events like BAJA SAE India 2019 and Enduro Student India 2019.</p>
                     <p><strong>Learnings:</strong> Team Work, Leadership, Time Management, Planning & Execution </p>
-                    <a href="https://www.instagram.com/djs_kronos_india/" target="_blank" class="project-link">View Team</a>
+                    <a href="https://www.instagram.com/djs_kronos_india/" target="_blank" class="project-link">View
+                        Team</a>
                 </div>
             </div>
         </section>
@@ -153,12 +185,16 @@
                         <li>Design of framework of Hybrid RMS for Ball Manufacturing Industry</li>
                         <li>Resilient and Robust Strategies for Process-Line Supply Chain in Textile Industry</li>
                         <li>Topology Optimization of Wheel Hub Used in Automobiles</li>
-                        <li>An approach for material selection for bone staple (an orthopaedic implant) using GRA and Fuzzy logic</li>
-                        <li>Optimization of end milling of Inconel 825 with coated tool: a mathematical comparison between GRA, TOPSIS and Fuzzy Logic methods</li>
+                        <li>An approach for material selection for bone staple (an orthopaedic implant) using GRA and
+                            Fuzzy logic</li>
+                        <li>Optimization of end milling of Inconel 825 with coated tool: a mathematical comparison
+                            between GRA, TOPSIS and Fuzzy Logic methods</li>
                         <li>Static Analysis of Tripod Housing Using FEA and Its Validation</li>
-                        <li>An Alternative Approach for Turning of Inconel 825: Feasibility Analysis of Process Parameters</li>
+                        <li>An Alternative Approach for Turning of Inconel 825: Feasibility Analysis of Process
+                            Parameters</li>
                         <li>Design and Analysis of Multi-purpose Shopfloor Vice</li>
-                        <li>Modal and Static Analysis of Luggage Rack Systems Used in Mumbai Suburban Railway Trains</li>
+                        <li>Modal and Static Analysis of Luggage Rack Systems Used in Mumbai Suburban Railway Trains
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -166,14 +202,18 @@
 
         <section id="contact">
             <h2>Get In Touch</h2>
-            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of something great.</p>
-            <p>Email me at: <a href="mailto:jash.ravariya98@gmail.com"><i class="fas fa-envelope"></i> jash.ravariya98@gmail.com</a></p>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of something
+                great.</p>
+            <p>Email me at: <a href="mailto:jash.ravariya98@gmail.com"><i class="fas fa-envelope"></i>
+                    jash.ravariya98@gmail.com</a></p>
             <p>Or connect with me on:
-                <a href="https://www.linkedin.com/in/jashpatel98/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                 | 
-                <a href="https://scholar.google.com/citations?user=xoVQ8UEAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                <a href="https://www.linkedin.com/in/jashpatel98/" target="_blank"><i class="fab fa-linkedin"></i>
+                    LinkedIn</a>
+                |
+                <a href="https://scholar.google.com/citations?user=xoVQ8UEAAAAJ&hl=en" target="_blank"><i
+                        class="fas fa-graduation-cap"></i> Google Scholar</a>
             </p>
-            </section>
+        </section>
     </main>
 
     <footer>
@@ -183,5 +223,7 @@
     <!-- Back to Top Button -->
     <button id="backToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 
-    <script src="script.js"></script> </body>
+    <script src="script.js"></script>
+</body>
+
 </html>
