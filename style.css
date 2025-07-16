@@ -1,3 +1,12 @@
+/* Universal Box-Sizing Reset */
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
 /* Basic Reset & Body Styling */
 body {
     font-family: 'Inter', sans-serif; /* Changed to Inter font */
