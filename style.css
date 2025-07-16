@@ -1,3 +1,8 @@
+/* Add this to your style.css */
+body.no-scroll {
+    overflow: hidden;
+}
+
 /* Universal Box-Sizing Reset */
 html {
   box-sizing: border-box;
