@@ -52,4 +52,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Dark Mode Toggle functionality
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const iconMoon = darkModeToggle.querySelector('.fa-moon'); // Get specific icons
+    const iconSun = darkModeToggle.querySelector('.fa-sun'); // Get specific icons
+
+    // Function to update tooltip text
+    function updateTooltip() {
+        if (body.classList.contains('dark-mode')) {
+            darkModeToggle.setAttribute('data-tooltip', 'Toggle for light mode');
+        } else {
+            darkModeToggle.setAttribute('data-tooltip', 'Toggle for dark mode');
+        }
+    }
+
+    // Check for user's preferred theme in local storage or system preference
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        body.classList.add('dark-mode');
+        // No need to toggle display directly here, CSS handles it
+    } else if (currentTheme === null && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // If no preference in local storage, check system preference
+        body.classList.add('dark-mode');
+        // No need to toggle display directly here, CSS handles it
+    }
+    // Initial tooltip setup
+    updateTooltip();
+
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+        // Update tooltip after theme change
+        updateTooltip();
+    });
 });
