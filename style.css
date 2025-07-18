@@ -164,6 +164,14 @@ header nav {
     gap: 20px;
 }
 
+header nav h1 {
+    margin: 0; /* Crucial: removes default top/bottom browser margins */
+    font-size: 2rem; /* Keep the desired size for your name */
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1; /* Ensures text itself takes minimal vertical space */
+}
+
 .logo {
     margin: 0;
     font-size: 2rem; /* Slightly larger logo */
