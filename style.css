@@ -684,11 +684,6 @@ footer {
     border: 0;
     cursor: pointer;
     padding: 0.5em;
-    position: absolute;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1001;
 }
 
 .hamburger {
@@ -776,7 +771,7 @@ footer {
         margin: 0 auto; /* Center cards */
     }
     .nav-toggle {
-        display: block; /* Show the hamburger button */
+        display: flex; /* Show the hamburger button */
     }
 
     .nav-links {
