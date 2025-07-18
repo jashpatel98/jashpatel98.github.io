@@ -816,14 +816,11 @@ footer {
         /*justify-content: center; /* Center items when wrapped */
     /*}*/
 
-    header nav {
-         padding: 0 15px 0 60px; /* Example: adjust left padding to make space for button */
-    }
 
     header nav h1 {
         flex-basis: auto; /* Make the name take full width */
-        text-align: center;
-        margin-bottom: 10px;
+        text-align: left;
+        margin-bottom: 0px;
     }
     /* New for mobile nav layout */
     header nav h1 {
