@@ -162,6 +162,7 @@ header nav {
     padding: 0 25px; /* Increased padding */
     position: relative; 
     gap: 20px;
+    
 }
 
 header nav h1 {
@@ -170,6 +171,7 @@ header nav h1 {
     font-weight: 700;
     letter-spacing: -0.5px;
     line-height: 1; /* Ensures text itself takes minimal vertical space */
+    
 }
 
 .logo {
@@ -685,6 +687,64 @@ footer {
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
 }
 
+/* Fixed nav toggle always visible on screen */
+.fixed-toggle {
+    position: fixed;
+    top: 1.2rem;
+    right: 1.5rem;
+    z-index: 1100;
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em;
+}
+
+/* Keep hamburger styling consistent */
+.fixed-toggle .hamburger {
+    display: block;
+    position: relative;
+    width: 2em;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+.fixed-toggle .hamburger::before,
+.fixed-toggle .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
+}
+
+.fixed-toggle .hamburger::before {
+    top: -8px;
+}
+
+.fixed-toggle .hamburger::after {
+    bottom: -8px;
+}
+
+.nav-open .fixed-toggle .hamburger {
+    background: transparent;
+}
+
+.nav-open .fixed-toggle .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav-open .fixed-toggle .hamburger::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
 /* Responsive adjustments */
 @media (max-width: 992px) {
     header nav {
@@ -745,7 +805,7 @@ footer {
         align-items: center;
         transform: translateX(100%); /* Hide it off-screen */
         transition: transform 0.4s ease-out;
-        z-index: 1000;
+        z-index: 1001;
     }
 
     .nav-open .nav-links {
@@ -789,67 +849,4 @@ footer {
         margin: 0 5px;
     }
 
-    .nav-toggle {
-        top: 0.75rem; /* Slightly adjust top for very small screens */
-        right: 10px; /* Slightly adjust right for very small screens */
-    }
 }
-
-/* Fixed nav toggle always visible on screen */
-.fixed-toggle {
-    position: fixed;
-    top: 1.2rem;
-    right: 1.5rem;
-    z-index: 1100;
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5em;
-}
-
-/* Keep hamburger styling consistent */
-.fixed-toggle .hamburger {
-    display: block;
-    position: relative;
-    width: 2em;
-    height: 3px;
-    background: white;
-    border-radius: 2px;
-    transition: transform 0.3s ease;
-}
-
-.fixed-toggle .hamburger::before,
-.fixed-toggle .hamburger::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: white;
-    border-radius: 2px;
-    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
-}
-
-.fixed-toggle .hamburger::before {
-    top: -8px;
-}
-
-.fixed-toggle .hamburger::after {
-    bottom: -8px;
-}
-
-.nav-open .fixed-toggle .hamburger {
-    background: transparent;
-}
-
-.nav-open .fixed-toggle .hamburger::before {
-    top: 0;
-    transform: rotate(45deg);
-}
-
-.nav-open .fixed-toggle .hamburger::after {
-    bottom: 0;
-    transform: rotate(-45deg);
-}
-
