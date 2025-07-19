@@ -113,7 +113,7 @@ body.dark-mode #contact p a {
 }
 
 body.dark-mode #contact p a:visited {
-    color: #a0a8ff; /* A slightly different light shade for visited links in dark mode */
+    color: #b080ff;
 }
 
 body.dark-mode #contact p a:hover {
@@ -232,8 +232,6 @@ header a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* No position, left, top, or transform */
-    z-index: 1002; /* Keep for tooltip, or adjust if not needed */
 }
 
 #darkModeToggle::after {
@@ -242,7 +240,7 @@ header a:hover {
     top: 100%; /* Position below the button */
     left: 50%;
     transform: translateX(-50%);
-    white-space: nowrap; /* Keep text on one line */
+    white-space: normal; /* Keep text on one line */
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
     padding: 8px 12px;
@@ -253,6 +251,8 @@ header a:hover {
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1002; /* Ensure it's above other elements */
     margin-top: 10px; /* Space between button and tooltip */
+    max-width: 200px;
+    text-align: center;
 }
 
 #darkModeToggle:hover::after {
@@ -685,65 +685,11 @@ footer {
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
 }
 
-/* Mobile Navigation Toggle (Hamburger) */
-.nav-toggle {
-    display: none; /* Hidden by default */
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-    padding: 0.5em;
-}
-
-.hamburger {
-    display: block;
-    position: relative;
-    width: 2em;
-    height: 3px;
-    background: white;
-    border-radius: 2px;
-    transition: transform 0.3s ease;
-}
-
-.hamburger::before,
-.hamburger::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: white;
-    border-radius: 2px;
-    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
-}
-
-.hamburger::before {
-    top: -8px;
-}
-
-.hamburger::after {
-    bottom: -8px;
-}
-
-/* Animate hamburger to an 'X' when active */
-.nav-open .hamburger {
-    transform: rotate(45deg);
-}
-
-.nav-open .hamburger::before {
-    top: 0;
-    transform: rotate(90deg);
-}
-
-.nav-open .hamburger::after {
-    bottom: 0;
-    transform: rotate(90deg);
-}
-
 /* Responsive adjustments */
 @media (max-width: 992px) {
     header nav {
         padding: 0 15px;
-        justify-content: space-between;
+        justify-content: flex-start;
         flex-wrap: wrap;
         gap: 10px;
     }
@@ -778,8 +724,12 @@ footer {
         max-width: 500px; /* Max width for better readability on large screens */
         margin: 0 auto; /* Center cards */
     }
-    .nav-toggle {
-        display: flex; /* Show the hamburger button */
+
+    .fixed-toggle {
+        display: flex; /* Show hamburger on mobile */
+        top: 1rem;
+        right: 15px;
+        z-index: 1003;
     }
 
     .nav-links {
@@ -795,6 +745,7 @@ footer {
         align-items: center;
         transform: translateX(100%); /* Hide it off-screen */
         transition: transform 0.4s ease-out;
+        z-index: 1000;
     }
 
     .nav-open .nav-links {
@@ -803,43 +754,6 @@ footer {
     
     header ul li {
        margin: 20px 0; /* Adjust spacing for vertical menu */
-    }
-
-    /* Adjust dark mode toggle position for mobile */
-    /* #darkModeToggle { */
-        /* position: absolute;*/ /*Position it relative to the nav */
-        /* top: 50%; */
-        /* left: 15px; */
-        /*transform: translateY(-50%);*/ /* Center it */
-        /*margin-left: 0;*/ /* Reset margin */
-    /*} */
-
-    /*header nav {*/
-        /*flex-wrap: wrap; /*Allow items to wrap on smaller screens */
-        /*justify-content: center; /* Center items when wrapped */
-    /*}*/
-
-
-    header nav h1 {
-        flex-basis: auto; /* Make the name take full width */
-        text-align: left;
-        margin-bottom: 0px;
-    }
-    /* New for mobile nav layout */
-    header nav h1 {
-        order: 1; /* Name first */
-    }
-    #darkModeToggle {
-        order: 2; /* Toggle second */
-    }
-    .nav-toggle {
-        order: 3; /* Hamburger third */
-        margin-left: auto; /* Push hamburger to right */
-    }
-    .nav-links {
-        flex-basis: 100%; /* Nav links take full width below */
-        order: 4;
-        /* Existing styles for sliding in/out */
     }
 }
 
@@ -875,12 +789,67 @@ footer {
         margin: 0 5px;
     }
 
-    /* #darkModeToggle {*/
-        /*top: 15px;*/ /* Adjust top position for better alignment on small screens */
-        /* left: 15px;*/ /*Adjust left position */
-        /*transform: none;*/ /* Remove centering transform */
-    /* } */
-    /* header nav { */
-        /*padding: 0 15px 0 55px;*/ /* Adjust padding for smaller screen too */
-    /* } */ 
+    .nav-toggle {
+        top: 0.75rem; /* Slightly adjust top for very small screens */
+        right: 10px; /* Slightly adjust right for very small screens */
+    }
 }
+
+/* Fixed nav toggle always visible on screen */
+.fixed-toggle {
+    position: fixed;
+    top: 1.2rem;
+    right: 1.5rem;
+    z-index: 1100;
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em;
+}
+
+/* Keep hamburger styling consistent */
+.fixed-toggle .hamburger {
+    display: block;
+    position: relative;
+    width: 2em;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+.fixed-toggle .hamburger::before,
+.fixed-toggle .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
+}
+
+.fixed-toggle .hamburger::before {
+    top: -8px;
+}
+
+.fixed-toggle .hamburger::after {
+    bottom: -8px;
+}
+
+.nav-open .fixed-toggle .hamburger {
+    background: transparent;
+}
+
+.nav-open .fixed-toggle .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav-open .fixed-toggle .hamburger::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+

@@ -1,15 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const navToggle = document.querySelector('.nav-toggle');
+    const navToggle = document.querySelector('.fixed-toggle');
     const header = document.querySelector('header');
     const body = document.body; // Get the body element
 
     navToggle.addEventListener('click', () => {
         // Use a class on the header to scope the "open" state
-        header.classList.toggle('nav-open');
+        body.classList.toggle('nav-open');
         body.classList.toggle('no-scroll'); // Toggle no-scroll class on body
     });
-    
+
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (body.classList.contains('nav-open')) {
+                body.classList.remove('nav-open');
+                body.classList.remove('no-scroll');
+            }
+        });
+    });
+
     // Intersection Observer for fade-in animations
     const sections = document.querySelectorAll('section');
 
