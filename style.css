@@ -690,14 +690,14 @@ footer {
 /* Fixed nav toggle always visible on screen */
 .fixed-toggle {
     position: fixed;
-    top: 1.2rem;
+    top: 1rem;
     right: 1.5rem;
-    z-index: 1100;
     display: none;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.5em;
+    z-index: 1100;
 }
 
 /* Keep hamburger styling consistent */
@@ -787,7 +787,7 @@ footer {
 
     .fixed-toggle {
         display: flex; /* Show hamburger on mobile */
-        top: 1rem;
+        top: 1.8rem;
         right: 15px;
         z-index: 1003;
     }
