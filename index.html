@@ -4,233 +4,405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jash Patel - Get to know me!</title>
+    <title>Jash Patel — Supply Chain, AI & Process Excellence</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts: Inter for a modern look -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fraunces:ital,opsz,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    <!-- <button class="fixed-toggle" aria-label="toggle navigation">
-        <span class="hamburger"></span>
-    </button> -->
-    <header>
+    <header class="site-header" id="siteHeader">
         <nav>
-            <h1>Jash Patel</h1>
-            <button id="darkModeToggle" aria-label="Toggle dark mode">
+            <h1 class="site-logo"><a href="#hero">Jash Patel</a></h1>
+            <ul class="nav-links">
+                <li><a href="#hello">Hello</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Focus</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#honors">Impact</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="darkModeToggle" aria-label="Toggle dark mode" type="button">
                 <i class="fas fa-moon"></i>
                 <i class="fas fa-sun"></i>
             </button>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#honors">Achievements</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>       
-            
-            <button class="fixed-toggle" aria-label="toggle navigation">
+            <button class="fixed-toggle" aria-label="Toggle navigation" type="button">
                 <span class="hamburger"></span>
             </button>
         </nav>
     </header>
 
     <main>
-        <section id="hero">
-            <h2>Welcome! I'm Jash</h2>
-            <p>Business Processes & Excellence Expert | AI Application & Implementation Expert | Digital Supply Chain
-                Manager</p>
-            <a href="#projects" class="cta-button">View My Work <i class="fas fa-arrow-right"></i></a>
+        <section id="hero" class="hero-bh">
+            <div class="hero-mesh" aria-hidden="true"></div>
+            <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
+            <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+            <div class="hero-orb hero-orb--3" aria-hidden="true"></div>
+            <div class="hero-grain" aria-hidden="true"></div>
+            <div class="hero-inner">
+                <p class="hero-eyebrow hero-anim" data-hero-order="0">Frankfurt · Supply chain &amp; technology</p>
+                <h2 class="hero-display hero-anim" data-hero-order="1">One focus.<br><span class="hero-display-accent">Many ways to deliver.</span></h2>
+                <p class="hero-lede hero-anim" data-hero-order="2">Business process excellence, AI implementation, and digital supply chain—turning complex operations into clear, measurable outcomes.</p>
+                <a href="#projects" class="cta-button hero-anim" data-hero-order="3"><span class="cta-shine" aria-hidden="true"></span>Explore my work <i class="fas fa-arrow-right"></i></a>
+            </div>
         </section>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <img src="Jash picture.png" alt="Jash Patel" class="profile-pic">
-                <div>
-                    <p>Hello! I'm Jash, a Supply Chain and Technology Expert based in Frankfurt, Germany. My passion
-                        lies in Business Process Optimization, AI Application & Implementation, Digital Supply Chain
-                        Management, and Analytics</p>
-                    <p>With a background in Mechanical Engineering and Information Technology, I bring skills in areas
-                        like Artificial Intelligence, Machine Learning, Data Science, Blockchain, and Product
-                        Development.</p>
-                    <p>On the management side, I have a strong foundation in Business Process Analytics, Operations,
-                        Project Management, Purchasing, and Supply Chain & Inventory Management, always eager to expand
-                        my expertise.</p>
-                    <p>When I'm not diving into the latest tech or optimizing processes, you might find me exploring new
-                        countries, photographing perspective views, or playing chess/volleyball.</p>
+        <div class="marquee-strip" aria-hidden="true">
+            <div class="marquee-viewport">
+                <div class="marquee-track">
+                    <div class="marquee-set">
+                        <span class="marquee-item">Process excellence</span><span class="marquee-dot">·</span>
+                        <span class="marquee-item">AI that fits the workflow</span><span class="marquee-dot">·</span>
+                        <span class="marquee-item">Digital supply chain</span><span class="marquee-dot">·</span>
+                        <span class="marquee-item">Data to decisions</span><span class="marquee-dot">·</span>
+                        <span class="marquee-item">Stakeholder clarity</span><span class="marquee-dot">·</span>
+                    </div>
+                    <div class="marquee-set">
+                        <span class="marquee-item">Process excellence</span><span class="marquee-dot">·</span>
+                        <span class="marquee-item">AI that fits the workflow</span><span class="marquee-dot">·</span>
+                        <span class="marquee-item">Digital supply chain</span><span class="marquee-dot">·</span>
+                        <span class="marquee-item">Data to decisions</span><span class="marquee-dot">·</span>
+                        <span class="marquee-item">Stakeholder clarity</span><span class="marquee-dot">·</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <section id="hello" class="section-hello section-reveal">
+            <div class="section-inner narrow">
+                <p class="hello-label reveal-blur" data-reveal>Hello</p>
+                <p class="hello-intro reveal-blur" data-reveal>I work with organizations to strengthen how they buy, plan, and decide—using data, automation, and thoughtful AI where it truly helps people perform.</p>
+                <p class="hello-body reveal-blur" data-reveal>Driven by curiosity and clarity, I connect engineering rigor with business context: from dashboards and agents to process design and stakeholder alignment.</p>
+            </div>
+        </section>
+
+        <section class="section-stats section-reveal" aria-label="Highlights">
+            <div class="stats-grid">
+                <div class="stat-block reveal-rise" data-reveal>
+                    <span class="stat-number"><span class="stat-count" data-target="10" data-suffix="+">0</span></span>
+                    <span class="stat-label">hackathons &amp; innovation events (AI, sustainability, start-ups)</span>
+                </div>
+                <div class="stat-block reveal-rise" data-reveal>
+                    <span class="stat-number"><span class="stat-count" data-target="7" data-suffix="">0</span></span>
+                    <span class="stat-label">competition accolades with the DJS Kronos ATV team</span>
+                </div>
+                <div class="stat-block reveal-rise" data-reveal>
+                    <span class="stat-number"><span class="stat-count" data-target="11" data-suffix="+">0</span></span>
+                    <span class="stat-label">research publications across engineering &amp; supply chain</span>
                 </div>
             </div>
         </section>
 
-        <section id="skills">
-            <h2>My Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3><i class="fas fa-laptop-code icon"></i> Technical Skills</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>R Programming</li>
-                        <li>C & Unix</li>
-                        <li>GenAI & Prompt Engineering</li>
-                        <li>Data Analytics and Visualization</li>
-                        <li>Product Design & Finite Element Analysis </li>
-                        <li>3D Printing & Prototyping </li>
-                        <li>Industrial IoT </li>
-                    </ul>
+        <section id="about" class="section-about section-reveal">
+            <div class="section-inner">
+                <div class="split-headline">
+                    <h2 class="split-line reveal-line" data-reveal>One path</h2>
+                    <p class="split-sub reveal-blur" data-reveal>Depth in operations and analytics</p>
+                    <h2 class="split-line reveal-line" data-reveal>One craft</h2>
+                    <p class="split-sub reveal-blur" data-reveal>From models to meaningful change</p>
                 </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools icon"></i> Software & Tools</h3>
-                    <ul>
-                        <li>MS Power BI & MS Excel</li>
-                        <li>MS Power Apps</li>
-                        <li>MS Power Automate</li>
-                        <li>MS Sharepoint</li>
-                        <li>MS Copilot Studio</li>
-                        <li>Dassault Solidworks & Catia V5 </li>
-                        <li>ANSYS </li>
-                        <li>WordPress </li>
-                        <li>Git & GitHub </li>
-                        <li>Notion, Clickup, Adobe Suite </li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-users-cog icon"></i> Soft Skills</h3>
-                    <ul>
-                        <li>Supply Chain & Procurement Strategy </li>
-                        <li>Process Analytics and Management </li>
-                        <li>Commodity Price Analysis </li>
-                        <li>Communication (incl. Podcasts) </li>
-                        <li>Project Management</li>
-                        <li>Stakeholder Management </li>
-                        <li>Problem-Solving</li>
-                        <li>Languages: English (C2), German (B2) </li>
-                    </ul>
+                <div class="about-content">
+                    <div class="profile-wrap reveal-rise" data-reveal>
+                        <img src="Jash picture.png" alt="Jash Patel" class="profile-pic" width="240" height="240" loading="lazy" decoding="async">
+                    </div>
+                    <div class="about-copy">
+                        <p class="reveal-blur" data-reveal>I'm Jash, a supply chain and technology specialist based in Frankfurt. My work sits at the intersection of business process optimization, AI application and implementation, digital supply chain, and analytics.</p>
+                        <p class="reveal-blur" data-reveal>My background combines a <strong>Master in Management (TUM)</strong> with analytics, supply chain, and procurement depth, plus a <strong>Bachelor in Mechanical Engineering</strong> and hands-on engineering and IT practice—from AI/ML and data work to product and process delivery.</p>
+                        <p class="reveal-blur" data-reveal>Outside of work, I follow markets and investing, explore new places, photograph perspective, and unwind with cricket, chess, and volleyball.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Purchasing Process Automation</h3>
-                    <p>As a Coordinator at Mainova AG, I developed a self-service tracking portal for purchase
-                        requisitions, integrating ERP data into Power BI to reduce email volume by 20-30% per employee.
-                        I also built AI Agents with Microsoft Copilot Studio for negotiations and product catalog
-                        details. I have also designed and led internal AI and prompt engineering trainings. </p>
-                    <p><strong>Technologies:</strong> Power BI, ERP Systems, AI</p>
-                    <a href="https://www.mainova.de/de/ihre-mainova/ueber-uns/profil/einkauf-und-zentrale-dienste"
-                        target="_blank" class="project-link">View Company</a>
+        <section id="education" class="section-education section-reveal">
+            <div class="section-inner">
+                <h2 class="section-title section-title-accent reveal-line" data-reveal>Education</h2>
+                <p class="section-dek reveal-blur" data-reveal>Where I studied—at a glance.</p>
+                <div class="education-grid education-grid--compact">
+                    <article class="edu-card edu-card--compact tilt-card" data-reveal>
+                        <span class="edu-meta">Master’s · Part-time</span>
+                        <h3>M.Sc. Artificial Intelligence</h3>
+                        <p class="edu-school">Universität zu Lübeck</p>
+                        <div class="edu-logo">
+                            <img src="https://logo.clearbit.com/uni-luebeck.de" alt="" width="120" height="36" loading="lazy" decoding="async" onerror="this.style.display='none';var f=this.nextElementSibling;if(f)f.classList.add('is-visible');">
+                            <span class="edu-logo-fallback" aria-hidden="true">UzL</span>
+                        </div>
+                    </article>
+                    <article class="edu-card edu-card--compact tilt-card" data-reveal>
+                        <span class="edu-meta">Executive programme</span>
+                        <h3>AI for Business Transformation</h3>
+                        <p class="edu-school">Imperial Business School London</p>
+                        <div class="edu-logo">
+                            <img src="https://logo.clearbit.com/imperial.ac.uk" alt="" width="120" height="36" loading="lazy" decoding="async" onerror="this.style.display='none';var f=this.nextElementSibling;if(f)f.classList.add('is-visible');">
+                            <span class="edu-logo-fallback" aria-hidden="true">IBS</span>
+                        </div>
+                    </article>
+                    <article class="edu-card edu-card--compact tilt-card" data-reveal>
+                        <span class="edu-meta">Master’s</span>
+                        <h3>Master in Management</h3>
+                        <p class="edu-school">Technical University of Munich</p>
+                        <div class="edu-logo">
+                            <img src="https://logo.clearbit.com/tum.de" alt="" width="120" height="36" loading="lazy" decoding="async" onerror="this.style.display='none';var f=this.nextElementSibling;if(f)f.classList.add('is-visible');">
+                            <span class="edu-logo-fallback" aria-hidden="true">TUM</span>
+                        </div>
+                    </article>
+                    <article class="edu-card edu-card--compact tilt-card" data-reveal>
+                        <span class="edu-meta">Training · Bootcamp</span>
+                        <h3>Computer science (Project learning)</h3>
+                        <p class="edu-school">42 Heilbronn</p>
+                        <div class="edu-logo">
+                            <img src="https://logo.clearbit.com/42.fr" alt="" width="120" height="36" loading="lazy" decoding="async" onerror="this.style.display='none';var f=this.nextElementSibling;if(f)f.classList.add('is-visible');">
+                            <span class="edu-logo-fallback" aria-hidden="true">42HN</span>
+                        </div>
+                    </article>
+                    <article class="edu-card edu-card--compact tilt-card" data-reveal>
+                        <span class="edu-meta">Bachelor’s</span>
+                        <h3>Mechanical Engineering</h3>
+                        <p class="edu-school">University of Mumbai, DJSCE</p>
+                        <div class="edu-logo">
+                            <img src="https://logo.clearbit.com/mu.ac.in" alt="" width="120" height="36" loading="lazy" decoding="async" onerror="this.style.display='none';var f=this.nextElementSibling;if(f)f.classList.add('is-visible');">
+                            <span class="edu-logo-fallback" aria-hidden="true">MU</span>
+                        </div>
+                    </article>
                 </div>
-                <div class="project-card">
-                    <h3>Commodity Market & Contract Analysis</h3>
-                    <p>During my time at Schwarz Corporate Solutions (previously, Schwarz Dienstleistungen), I advised
-                        buyers on commodity price indices, developed dashboards for global market reports, and
-                        streamlined contract management. Additionally, I produced eight podcasts on procurement topics
-                        to enhance internal communication and knowledge-sharing within the organization. </p>
-                    <p><strong>Technologies:</strong> Data Analysis, Dashboarding, Price Analysis</p>
-                    <a href="https://beschaffung.schwarz/" target="_blank" class="project-link">View Company</a>
-                </div>
-                <div class="project-card">
-                    <h3>Master's Thesis: Student Debt Impact</h3>
-                    <p>For my Master's Thesis at TUM, I researched the impact of student debt on professional and
-                        academic choices. The project involved analyzing debt levels and sources for a variety of
-                        dependent variables using supervised learning and descriptive statistics.</p>
-                    <p><strong>Technologies:</strong> Supervised Learning, Python, Data Analysis, Descriptive Statistics
-                    </p>
-                    <a href="https://www.tum.de/" target="_blank" class="project-link">View University</a>
-                </div>
-                <div class="project-card">
-                    <h3>Predictive Data Analysis (Academic)</h3>
-                    <p>This project involved the descriptive and predictive analysis of rainfall in Australia and the
-                        housing market in the USA, applying advanced statistical methods. Another project focused on
-                        calculating product recommendations and price promotions for Kaufland data. </p>
-                    <p><strong>Technologies:</strong> Python, R programming </p>
-                    <a href="https://github.com/jashpatel98" target="_blank" class="project-link">View on GitHub</a>
-                </div>
-                <div class="project-card">
-                    <h3>Industrial IoT Integration</h3>
-                    <p>As a Working Student at Ferdinand-Steinbeis-Institut, I investigated the integration of
-                        Industrial IoT for data sharing and analysis. My work included identifying stakeholders in
-                        various IoT business models and updating the official website using WordPress. </p>
-                    <p><strong>Technologies:</strong> IoT, Data Analysis, WordPress </p>
-                    <a href="https://www.ferdinand-steinbeis-institut.de/" target="_blank" class="project-link">View
-                        Institute</a>
-                </div>
-                <div class="project-card">
-                    <h3>All-Terrain Vehicle (DJS Kronos)</h3>
-                    <p>As Head of Suspension and Vehicle Dynamics, I was part of a team that built an All-Terrain
-                        Vehicle from scratch. We participated in national and international competitions, bagging 7
-                        accolades at events like BAJA SAE India 2019 and Enduro Student India 2019.</p>
-                    <p><strong>Learnings:</strong> Team Work, Leadership, Time Management, Planning & Execution </p>
-                    <a href="https://www.instagram.com/djs_kronos_india/" target="_blank" class="project-link">View
-                        Team</a>
+                <div class="certs-block">
+                    <h3 class="certs-title reveal-line" data-reveal>Certifications &amp; programs</h3>
+                    <ul class="certs-list reveal-blur" data-reveal>
+                        <li>McKinsey Forward Program — McKinsey &amp; Company</li>
+                        <li>Microsoft Copilot Studio &amp; intelligent agents — Pragmatic Works / Adesso SE</li>
+                        <li>Power Automate (beginner to pro) — Pragmatic Works</li>
+                        <li>SAP Business Data Cloud — introduction — SAP</li>
+                        <li>Scrum &amp; agile collaboration — Mainova</li>
+                    </ul>
+                    <p class="certs-events reveal-blur" data-reveal><strong>Hackathons &amp; events:</strong> Bundesliga AI Hackathon 2025, START Hack 2024, Siemens Tech for Sustainability 2024, TUM.ai hackathons (2022), Business Games (Munich, Milan, Frankfurt), McKinsey Forward 2024.</p>
                 </div>
             </div>
         </section>
 
-        <section id="honors">
-            <h2>Achievements</h2>
-            <div class="honors-grid">
-                <div class="honor-card">
-                    <h3><i class="fas fa-trophy icon"></i> Honors & Awards</h3>
-                    <ul>
-                        <li>Maneuverability Winners at BAJA SAE India 2018 & 2019</li>
-                        <li>Best Innovation Winners at BAJA SAE India 2019</li>
-                        <li>Maneuverability First Runner up at Enduro Student India 2018 </li>
-                        <li>'Best Student Chapter' for DJ Nirmiti event (2 consecutive years - 2018 & 2019) </li>
-                    </ul>
+        <section id="skills" class="section-skills section-reveal">
+            <div class="section-inner">
+                <h2 class="section-title section-title-accent reveal-line" data-reveal>What I bring</h2>
+                <p class="section-dek reveal-blur" data-reveal>Capabilities that span tools, methods, and how teams work together.</p>
+                <div class="offerings-grid stagger-grid">
+                    <article class="offering-card tilt-card" data-reveal>
+                        <h3>Technical depth</h3>
+                        <p>Python, R, GenAI &amp; prompt engineering, analytics and visualization, FEA and product design, IoT and prototyping.</p>
+                    </article>
+                    <article class="offering-card tilt-card" data-reveal>
+                        <h3>Microsoft stack</h3>
+                        <p>Power BI, Power Apps, Automate, SharePoint, Copilot Studio—integrated with ERP and real workflows.</p>
+                    </article>
+                    <article class="offering-card tilt-card" data-reveal>
+                        <h3>Engineering tools</h3>
+                        <p>SolidWorks, CATIA V5, ANSYS, 3D printing, and structured design iteration.</p>
+                    </article>
+                    <article class="offering-card tilt-card" data-reveal>
+                        <h3>Operations &amp; procurement</h3>
+                        <p>Strategy, commodity insight, process analytics, podcasts and stakeholder communication.</p>
+                    </article>
+                    <article class="offering-card tilt-card" data-reveal>
+                        <h3>Delivery</h3>
+                        <p>Project and stakeholder management, problem-solving under constraints, clear documentation.</p>
+                    </article>
+                    <article class="offering-card tilt-card" data-reveal>
+                        <h3>Languages</h3>
+                        <p>English (native), German (professional)—comfortable in global and local contexts.</p>
+                    </article>
                 </div>
-                <div class="honor-card">
-                    <h3><i class="fas fa-book-open icon"></i> Publications</h3>
-                    <ul>
-                        <li>Implementation of 6R Paradigm in the Life Cycle of Automobiles for Sustainability</li>
-                        <li>Application of Blockchain in Different Segments of Supply Chain Management</li>
-                        <li>Design of framework of Hybrid RMS for Ball Manufacturing Industry</li>
-                        <li>Resilient and Robust Strategies for Process-Line Supply Chain in Textile Industry</li>
-                        <li>Topology Optimization of Wheel Hub Used in Automobiles</li>
-                        <li>An approach for material selection for bone staple (an orthopaedic implant) using GRA and
-                            Fuzzy logic</li>
-                        <li>Optimization of end milling of Inconel 825 with coated tool: a mathematical comparison
-                            between GRA, TOPSIS and Fuzzy Logic methods</li>
-                        <li>Static Analysis of Tripod Housing Using FEA and Its Validation</li>
-                        <li>An Alternative Approach for Turning of Inconel 825: Feasibility Analysis of Process
-                            Parameters</li>
-                        <li>Design and Analysis of Multi-purpose Shopfloor Vice</li>
-                        <li>Modal and Static Analysis of Luggage Rack Systems Used in Mumbai Suburban Railway Trains
-                        </li>
-                    </ul>
+                <div class="skills-detail">
+                    <div class="skill-category reveal-rise" data-reveal>
+                        <h3><i class="fas fa-laptop-code icon"></i> Technical</h3>
+                        <ul>
+                            <li>Python</li>
+                            <li>R Programming</li>
+                            <li>C &amp; Unix</li>
+                            <li>GenAI &amp; Prompt Engineering</li>
+                            <li>Data Analytics and Visualization</li>
+                            <li>Product Design &amp; FEA</li>
+                            <li>3D Printing &amp; Prototyping</li>
+                            <li>Industrial IoT</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category reveal-rise" data-reveal>
+                        <h3><i class="fas fa-tools icon"></i> Software</h3>
+                        <ul>
+                            <li>MS Power BI &amp; Excel</li>
+                            <li>MS Power Apps / Automate</li>
+                            <li>MS SharePoint</li>
+                            <li>MS Copilot Studio</li>
+                            <li>SolidWorks &amp; CATIA V5</li>
+                            <li>ANSYS</li>
+                            <li>WordPress</li>
+                            <li>Git &amp; GitHub</li>
+                            <li>Notion, ClickUp, Adobe Suite</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category reveal-rise" data-reveal>
+                        <h3><i class="fas fa-users-cog icon"></i> Professional</h3>
+                        <ul>
+                            <li>Languages: English (native), German (professional)</li>
+                            <li>Supply Chain &amp; Procurement Strategy</li>
+                            <li>Process Analytics and Management</li>
+                            <li>Commodity Price Analysis</li>
+                            <li>Communication &amp; podcasts</li>
+                            <li>Project Management</li>
+                            <li>Stakeholder Management</li>
+                            <li>Problem-Solving</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Get In Touch</h2>
-            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of something
-                great.</p>
-            <p>Email me at: <a href="mailto:jash.ravariya98@gmail.com"><i class="fas fa-envelope"></i>
-                    jash.ravariya98@gmail.com</a></p>
-            <p>Or connect with me on:
-                <a href="https://www.linkedin.com/in/jashpatel98/" target="_blank"
-                    aria-label="Visit Jash Patel's LinkedIn profile"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                |
-                <a href="https://scholar.google.com/citations?user=xoVQ8UEAAAAJ&hl=en" target="_blank"
-                    aria-label="View Jash Patel's Google Scholar profile"><i class="fas fa-graduation-cap"></i> Google
-                    Scholar</a>
-            </p>
+        <section id="projects" class="section-work section-reveal">
+            <div class="section-inner">
+                <h2 class="section-title section-title-accent reveal-line" data-reveal>Experience &amp; projects</h2>
+                <p class="section-dek reveal-blur" data-reveal>Selected roles and outcomes—scannable highlights; full detail on <a href="https://www.linkedin.com/in/jashpatel98/" target="_blank" rel="noopener noreferrer">LinkedIn</a> or on request.</p>
+
+                <article class="work-lead tilt-card" data-reveal>
+                    <span class="project-tag">Energy · Procurement · Frankfurt</span>
+                    <h3>Mainova AG — Coordinator (processes &amp; automation)</h3>
+                    <p class="work-meta">Jul 2024 – present</p>
+                    <ul class="work-bullets">
+                        <li><strong>Prozess Gap Analysis</strong> — structured identification, analysis, and controlling of process gaps; informs prioritisation and the digitalisation roadmap from an end-to-end view.</li>
+                        <li><strong>Self-service Power BI portal</strong> with ERP linkage for requisitions (BANF) — ~20–30% fewer email-driven requests.</li>
+                        <li><strong>Contract management</strong> in Power BI (STAR schema, KPIs) — faster purchasing decisions (up to ~25%).</li>
+                        <li><strong>Sustainability news monitoring</strong> workflow — ~10–15% time saved; BPMN diagrams for solution design and handover.</li>
+                        <li><strong>GenAI &amp; agents</strong> (Copilot Studio, Power Automate) into production; training for <strong>50+</strong> colleagues; agile governance for sustainable operation of internal and external tools.</li>
+                    </ul>
+                    <p class="project-tech"><strong>Stack:</strong> Power BI, ERP, Microsoft 365, Copilot Studio, BPMN</p>
+                    <a href="https://www.mainova.de/de/ihre-mainova/ueber-uns/profil/einkauf-und-zentrale-dienste" target="_blank" rel="noopener noreferrer" class="project-link">Mainova <i class="fas fa-external-link-alt"></i></a>
+                </article>
+
+                <div class="projects-featured">
+                    <article class="project-feature tilt-card" data-reveal>
+                        <span class="project-tag">Retail · Analytics · Heilbronn</span>
+                        <h3>Schwarz Corporate Solutions — Working student (procurement)</h3>
+                        <p class="work-meta">Oct 2022 – Dec 2023</p>
+                        <ul class="work-bullets work-bullets--compact">
+                            <li>Quantitative analyses to support buyers in negotiations and sourcing strategy.</li>
+                            <li>Dashboards on commodity price indices and contract management for global teams.</li>
+                            <li>Eight procurement podcasts for internal knowledge sharing.</li>
+                        </ul>
+                        <p class="project-tech"><strong>Stack:</strong> Dashboarding, price analysis</p>
+                        <a href="https://beschaffung.schwarz/" target="_blank" rel="noopener noreferrer" class="project-link">Schwarz Group <i class="fas fa-external-link-alt"></i></a>
+                    </article>
+                    <article class="project-feature tilt-card" data-reveal>
+                        <span class="project-tag">Academic · ML</span>
+                        <h3>Research &amp; data science</h3>
+                        <p>Master’s thesis on student debt and career choices; predictive work on rainfall, housing, and Kaufland retail recommendations.</p>
+                        <p class="project-tech"><strong>Stack:</strong> Python, R</p>
+                        <a href="https://www.tum.de/" class="project-link" target="_blank" rel="noopener noreferrer">TUM <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://github.com/jashpatel98" class="project-link secondary" target="_blank" rel="noopener noreferrer">GitHub <i class="fab fa-github"></i></a>
+                    </article>
+                </div>
+
+                <div class="projects-grid projects-grid--experience">
+                    <div class="project-card tilt-card" data-reveal>
+                        <span class="project-tag">Maritime · Munich</span>
+                        <h3>CargoKite — Project student</h3>
+                        <p class="work-meta">May 2022 – Oct 2022</p>
+                        <p>Parametric cost model for ship operations (Excel) — speed, capacity, crew, and cost drivers.</p>
+                    </div>
+                    <div class="project-card tilt-card" data-reveal>
+                        <span class="project-tag">TUM · Digital marketing</span>
+                        <h3>Student assistant</h3>
+                        <p class="work-meta">Apr 2022 – Sep 2022 · Heilbronn</p>
+                        <p>Data-driven marketing support: structured datasets and image classification with R.</p>
+                    </div>
+                    <div class="project-card tilt-card" data-reveal>
+                        <span class="project-tag">IoT · Stuttgart</span>
+                        <h3>Ferdinand-Steinbeis-Institut</h3>
+                        <p class="work-meta">Jan 2022 – Sep 2022</p>
+                        <p>Industrial IoT ecosystems, stakeholder and governance models; WordPress updates.</p>
+                        <a href="https://www.ferdinand-steinbeis-institut.de/" target="_blank" rel="noopener noreferrer" class="project-link">Institute</a>
+                    </div>
+                    <div class="project-card tilt-card" data-reveal>
+                        <span class="project-tag">Team · India</span>
+                        <h3>DJS Kronos — All-terrain vehicle</h3>
+                        <p>Head of Suspension &amp; Vehicle Dynamics; seven competition accolades (e.g. BAJA SAE India).</p>
+                        <a href="https://www.instagram.com/djs_kronos_india/" target="_blank" rel="noopener noreferrer" class="project-link">Team</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="honors" class="section-honors section-reveal">
+            <div class="section-inner">
+                <h2 class="section-title section-title-accent reveal-line" data-reveal>Awards &amp; publications</h2>
+                <p class="section-dek reveal-blur" data-reveal>Recognition from competitions and a sustained research track in engineering and supply chain.</p>
+                <div class="honors-grid">
+                    <div class="honor-card reveal-rise" data-reveal>
+                        <h3><i class="fas fa-trophy icon"></i> Honors &amp; awards</h3>
+                        <ul>
+                            <li>Maneuverability Winners — BAJA SAE India 2018 &amp; 2019</li>
+                            <li>Best Innovation — BAJA SAE India 2019</li>
+                            <li>Maneuverability First Runner-up — Enduro Student India 2018</li>
+                            <li>Best Student Chapter — DJ Nirmiti (2018 &amp; 2019)</li>
+                        </ul>
+                    </div>
+                    <div class="honor-card reveal-rise" data-reveal>
+                        <h3><i class="fas fa-book-open icon"></i> Publications</h3>
+                        <ul>
+                            <li>Implementation of 6R Paradigm in the Life Cycle of Automobiles for Sustainability</li>
+                            <li>Application of Blockchain in Different Segments of Supply Chain Management</li>
+                            <li>Design of framework of Hybrid RMS for Ball Manufacturing Industry</li>
+                            <li>Resilient and Robust Strategies for Process-Line Supply Chain in Textile Industry</li>
+                            <li>Topology Optimization of Wheel Hub Used in Automobiles</li>
+                            <li>An approach for material selection for bone staple (orthopaedic implant) using GRA and Fuzzy logic</li>
+                            <li>Optimization of end milling of Inconel 825 with coated tool: GRA, TOPSIS and Fuzzy Logic</li>
+                            <li>Static Analysis of Tripod Housing Using FEA and Its Validation</li>
+                            <li>An Alternative Approach for Turning of Inconel 825: Feasibility Analysis</li>
+                            <li>Design and Analysis of Multi-purpose Shopfloor Vice</li>
+                            <li>Modal and Static Analysis of Luggage Rack Systems in Mumbai Suburban Railway Trains</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-connect section-reveal">
+            <div class="section-inner connect-inner">
+                <h2 class="connect-title reveal-line" data-reveal>Let's connect</h2>
+                <p class="connect-lede reveal-blur" data-reveal>Open to projects, collaborations, and conversations where operations, data, and AI meet.</p>
+                <p class="connect-email reveal-blur" data-reveal><a href="mailto:jash.ravariya98@gmail.com"><i class="fas fa-envelope"></i> jash.ravariya98@gmail.com</a></p>
+                <p class="connect-cv reveal-blur" data-reveal>
+                    <button type="button" class="request-cv-button" id="cvModalOpen" aria-haspopup="dialog" aria-controls="cvRequestModal">Request CV (PDF)</button>
+                    <span class="connect-cv-hint">Send a quick request—I’ll email you the PDF.</span>
+                </p>
+                <p class="connect-social reveal-blur" data-reveal>
+                    <a href="https://www.linkedin.com/in/jashpatel98/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <span class="connect-divider">·</span>
+                    <a href="https://scholar.google.com/citations?user=xoVQ8UEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                </p>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Jash Patel. All rights reserved.</p>
+        <p>&copy; 2026 Jash Patel</p>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="backToTopBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+    <button id="backToTopBtn" title="Go to top" type="button" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <div class="cv-modal" id="cvRequestModal" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle" aria-hidden="true" hidden>
+        <div class="cv-modal__backdrop" id="cvModalBackdrop" tabindex="-1"></div>
+        <div class="cv-modal__panel">
+            <button type="button" class="cv-modal__close" id="cvModalClose" aria-label="Close dialog">&times;</button>
+            <h3 id="cvModalTitle" class="cv-modal__title">Request CV (PDF)</h3>
+            <p class="cv-modal__intro">Leave your name and email. I’ll send the PDF to you.</p>
+            <form class="cv-modal__form" id="cvRequestForm" novalidate>
+                <label class="cv-modal__label" for="cvReqName">Name</label>
+                <input class="cv-modal__input" type="text" id="cvReqName" name="name" autocomplete="name" required placeholder="Your name">
+                <label class="cv-modal__label" for="cvReqEmail">Email</label>
+                <input class="cv-modal__input" type="email" id="cvReqEmail" name="email" autocomplete="email" required placeholder="you@example.com">
+                <p class="cv-modal__status" id="cvFormStatus" role="status" aria-live="polite"></p>
+                <button type="submit" class="cv-modal__submit" id="cvFormSubmit">Send request</button>
+            </form>
+            <p class="cv-modal__footnote">Uses a secure form service. If you prefer, you can still email me directly.</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
