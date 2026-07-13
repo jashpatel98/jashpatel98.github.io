@@ -473,6 +473,45 @@ body.dark-mode .hero-grain {
     opacity: 0.06;
 }
 
+/* 3D scene canvases — sit behind text content, above CSS gradients */
+.hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+body.webgl-on .hero-canvas {
+    opacity: 1;
+}
+
+/* When WebGL runs, fade the CSS orbs out so the two effects don't fight */
+body.webgl-on .hero-orb,
+body.webgl-on .hero-mesh {
+    opacity: 0;
+    animation: none;
+    transition: opacity 0.8s ease;
+}
+
+.connect-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+body.webgl-on .connect-canvas {
+    opacity: 1;
+}
+
 .hero-inner {
     position: relative;
     z-index: 2;
