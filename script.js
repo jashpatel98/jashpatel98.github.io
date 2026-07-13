@@ -21,24 +21,81 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* Stagger delays for reveal elements inside each section */
+    /* Stagger index for scroll-scrubbed reveals (BrightHouse-style sequential unveil) */
     document.querySelectorAll('.section-reveal').forEach((section) => {
         section.querySelectorAll('[data-reveal]').forEach((el, i) => {
-            el.style.setProperty('--stagger', `${i * 0.055}s`);
+            el.style.setProperty('--stagger-index', String(i * 0.065));
         });
     });
 
-    /* Scroll reveal — toggle on enter/leave so animations replay when scrolling back */
-    const revealEls = document.querySelectorAll('[data-reveal]');
-    const revealObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                entry.target.classList.toggle('is-visible', entry.isIntersecting);
+    /* Scroll-scrubbed reveals + section parallax + hero exit */
+    (function initScrollReveals() {
+        const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+        const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+        const revealEls = document.querySelectorAll('[data-reveal]');
+        const sections = document.querySelectorAll('.section-reveal');
+        const hero = document.getElementById('hero');
+        const heroInner = document.querySelector('.hero-inner');
+
+        if (prefersReducedMotion) {
+            revealEls.forEach((el) => {
+                el.style.setProperty('--reveal-progress', '1');
+                el.classList.add('is-visible');
             });
-        },
-        { root: null, rootMargin: '0px', threshold: 0 }
-    );
-    revealEls.forEach((el) => revealObserver.observe(el));
+            return;
+        }
+
+        let ticking = false;
+
+        const update = () => {
+            ticking = false;
+            const vh = window.innerHeight;
+
+            if (hero && heroInner) {
+                const heroRect = hero.getBoundingClientRect();
+                const heroScroll = clamp(-heroRect.top / (heroRect.height * 0.9), 0, 1);
+                heroInner.style.setProperty('--hero-scroll', String(heroScroll));
+            }
+
+            sections.forEach((section) => {
+                const inner = section.querySelector('.section-inner, .stats-grid, .connect-inner');
+                if (!inner) return;
+                const rect = section.getBoundingClientRect();
+                if (rect.bottom < 0 || rect.top > vh) {
+                    inner.style.setProperty('--section-parallax', '0');
+                    return;
+                }
+                const center = rect.top + rect.height * 0.5;
+                const offset = (center - vh * 0.5) / vh;
+                inner.style.setProperty('--section-parallax', String(offset * -32));
+            });
+
+            revealEls.forEach((el) => {
+                const rect = el.getBoundingClientRect();
+                const start = vh * 0.96;
+                const end = vh * 0.22;
+                const raw = (start - rect.top) / (start - end);
+                const stagger = parseFloat(el.style.getPropertyValue('--stagger-index')) || 0;
+                const denom = Math.max(0.15, 1 - stagger * 0.92);
+                const delayed = clamp((raw - stagger) / denom, 0, 1);
+                const p = easeOutQuart(delayed);
+                el.style.setProperty('--reveal-progress', String(p));
+                el.classList.toggle('is-visible', p > 0.88);
+            });
+        };
+
+        const onScroll = () => {
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(update);
+            }
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
+        update();
+    })();
 
     /* Stat count-up — replays when the row leaves view and enters again */
     const countFrames = new WeakMap();

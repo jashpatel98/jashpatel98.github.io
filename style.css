@@ -285,55 +285,54 @@ section {
     padding: 0;
 }
 
-/* Scroll-driven reveals — default state */
+/* Scroll-driven reveals — progress scrubbed via JS (--reveal-progress: 0→1) */
 [data-reveal] {
-    opacity: 0;
-    transition:
-        opacity 0.9s var(--ease-out-expo),
-        transform 0.9s var(--ease-out-expo),
-        filter 0.9s var(--ease-out-expo),
-        clip-path 1s var(--ease-out-expo);
-    transition-delay: var(--stagger, 0s);
+    --reveal-progress: 0;
+    --p: var(--reveal-progress);
+    will-change: transform, opacity, filter, clip-path;
+    transition: none;
 }
 
-[data-reveal].is-visible {
-    opacity: 1;
-}
-
-.reveal-blur {
-    transform: translateY(28px);
-    filter: blur(8px);
-}
-
-.reveal-blur.is-visible {
-    transform: translateY(0);
-    filter: blur(0);
+/* class .is-visible toggled near progress 1 — used by profile ring, title underline fallback */
+    opacity: calc(0.08 + var(--p) * 0.92);
+    transform: translateY(calc((1 - var(--p)) * 44px));
+    filter: blur(calc((1 - var(--p)) * 14px));
 }
 
 .reveal-line {
-    transform: translateY(0.85em);
-    filter: blur(6px);
-}
-
-.reveal-line.is-visible {
-    transform: translateY(0);
-    filter: blur(0);
+    opacity: calc(0.05 + var(--p) * 0.95);
+    transform: translateY(calc((1 - var(--p)) * 0.65em));
+    clip-path: inset(0 0 calc((1 - var(--p)) * 100%) 0);
+    filter: blur(calc((1 - var(--p)) * 10px));
 }
 
 .reveal-rise {
-    transform: translateY(40px);
+    opacity: calc(0.1 + var(--p) * 0.9);
+    transform: translateY(calc((1 - var(--p)) * 56px)) scale(calc(0.9 + var(--p) * 0.1));
 }
 
-.reveal-rise.is-visible {
-    transform: translateY(0);
+.reveal-scale {
+    opacity: calc(0.05 + var(--p) * 0.95);
+    transform: scale(calc(0.78 + var(--p) * 0.22)) translateY(calc((1 - var(--p)) * 32px));
+    filter: blur(calc((1 - var(--p)) * 8px));
 }
 
 .reveal-mask {
-    clip-path: inset(0 0 100% 0);
+    clip-path: inset(calc((1 - var(--p)) * 100%) 0 0 0);
+    opacity: calc(0.2 + var(--p) * 0.8);
 }
 
-.reveal-mask.is-visible {
-    clip-path: inset(0 0 0 0);
+/* Cards / blocks without a reveal-* modifier */
+[data-reveal]:not(.reveal-blur):not(.reveal-line):not(.reveal-rise):not(.reveal-mask):not(.reveal-scale) {
+    opacity: calc(0.1 + var(--p) * 0.9);
+    transform: translateY(calc((1 - var(--p)) * 40px)) scale(calc(0.94 + var(--p) * 0.06));
+}
+
+/* Tilt cards: opacity + blur only so hover tilt isn't overridden */
+[data-reveal].tilt-card {
+    transform: none;
+    opacity: calc(0.12 + var(--p) * 0.88);
+    filter: blur(calc((1 - var(--p)) * 6px));
 }
 
 .profile-wrap {
@@ -519,6 +518,10 @@ body.webgl-on .connect-canvas {
     margin: 0 auto;
     padding: 0 25px;
     text-align: center;
+    --hero-scroll: 0;
+    transform: translateY(calc(var(--hero-scroll) * 52px));
+    opacity: calc(1 - var(--hero-scroll) * 0.6);
+    will-change: transform, opacity;
 }
 
 .hero-anim {
@@ -769,6 +772,16 @@ body.dark-mode .section-stats {
     position: relative;
     display: inline-block;
     width: 100%;
+    overflow: hidden;
+}
+
+/* Section parallax — inner content drifts subtly while scrolling (BrightHouse-style depth) */
+.section-reveal .section-inner,
+.section-reveal .stats-grid,
+.section-reveal .connect-inner {
+    --section-parallax: 0;
+    transform: translate3d(0, calc(var(--section-parallax) * 1px), 0);
+    will-change: transform;
 }
 
 .split-sub {
@@ -830,8 +843,9 @@ body.dark-mode .section-stats {
     height: 2px;
     margin: 1rem auto 0;
     background: linear-gradient(90deg, transparent, var(--bh-accent), var(--bh-accent-soft), transparent);
-    transform: scaleX(0);
-    transition: transform 0.9s var(--ease-out-expo);
+    transform: scaleX(var(--p, 0));
+    transform-origin: center;
+    transition: none;
 }
 
 .section-title-accent.is-visible::after {
@@ -1846,6 +1860,22 @@ body.dark-mode #backToTopBtn {
         transform: none !important;
         filter: none !important;
         clip-path: none !important;
+        --reveal-progress: 1 !important;
+    }
+
+    .hero-inner {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    .section-reveal .section-inner,
+    .section-reveal .stats-grid,
+    .section-reveal .connect-inner {
+        transform: none !important;
+    }
+
+    .section-title-accent::after {
+        transform: scaleX(1) !important;
     }
 
     .section-connect::before {
